@@ -110,6 +110,9 @@
             public function checkWebhooks()
             {
                 //require_once 'vendor/autoload.php';
+                $json = file_get_contents('php://input');
+                $data = json_decode($json);
+
 
                 echo '<pre>';var_dump($_REQUEST);echo '</pre>';
                 $config     =   $this->getConfig();
@@ -139,7 +142,7 @@
                mail($config['preference']['external_reference'], $mensaje, $cabeceras);
                echo '<pre>';var_dump($_POST);echo '</pre>';
 
-               Response::json(['HTTP/1.1 200 OK'], 200);
+               header("HTTP/1.1 200 OK");
            }
         }
     }
