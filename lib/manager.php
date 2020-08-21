@@ -142,7 +142,9 @@
            {
                require_once 'vendor/autoload.php';
 
+               $config     =   $this->getConfig();
                MercadoPago\SDK::setAccessToken($config['mpago']['access_token']);
+                
                $json    =   MercadoPago\Preference::find_by_id($id);
                echo '<pre>';
                var_dump($json);
