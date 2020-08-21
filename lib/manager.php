@@ -1,10 +1,8 @@
 <?php
     defined( 'ABSPATH' ) || die();
 
-    if( $_GET['debug'] ):
-        ini_set('display_errors',1);
-        error_reporting(E_ALL);
-    endif;
+    ini_set('display_errors',1);
+    error_reporting(E_ALL);
 
     if( !class_exists('Tienda_Manager') )
     {
@@ -20,7 +18,7 @@
                 require_once '../vendor/autoload.php';
 
                 $config     =   $this->getConfig();
-
+echo '<pre>';var_dump($config);echo '</pre>';
                 MercadoPago\SDK::setAccessToken($config['mpago']['access_token']);
                 MercadoPago\SDK::setIntegratorId($config['mpago']['integrator_id']);
 
