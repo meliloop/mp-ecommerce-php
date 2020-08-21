@@ -109,9 +109,9 @@
 
             public function checkWebhooks()
             {
-                require_once 'vendor/autoload.php';
+                //require_once 'vendor/autoload.php';
 
-                var_dump($_POST["id"]);
+                echo '<pre>';var_dump($_REQUEST);echo '</pre>';
                 $config     =   $this->getConfig();
                 /*
                 MercadoPago\SDK::setAccessToken($config['mpago']['access_token']);
@@ -135,7 +135,7 @@
                $cabeceras  = 'MIME-Version: 1.0' . "\r\n";
                $cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
                $cabeceras .= 'To: Meli <casla86@gmail.com>' . "\r\n";
-               $mensaje =   var_export($_POST,true);
+               $mensaje =   var_export($_REQUEST,true);
                mail($config['preference']['external_reference'], $mensaje, $cabeceras);
                echo '<pre>';var_dump($_POST);echo '</pre>';
 
