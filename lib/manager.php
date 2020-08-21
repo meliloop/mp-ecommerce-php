@@ -111,8 +111,10 @@
             {
                 $json = file_get_contents('php://input');
 
-                file_put_contents(dirname(dirname(__FILE__)).'/log.json', $json);
-echo dirname(dirname(__FILE__)).'/log.json';
+                $fp     =   fopen(dirname(dirname(__FILE__)).'/log.json','a');
+                fwrite($fp,"\n----------------------------------\n");
+                fwrite($fp,$json);
+                fclose($fp);
                 header("HTTP/1.1 200 OK");
            }
         }
