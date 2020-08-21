@@ -5,7 +5,6 @@
         $mgr        =   new Tienda_Manager();
         $btn_link   =   $mgr->createPreference();
     }catch(Exception $e){
-        var_dump($e);
         $error      =   $e->getMessage();
     }
 ?>
@@ -74,9 +73,9 @@
                 </div>
             </div>
             <div class="as-search-results as-filter-open as-category-landing as-desktop" id="as-search-results">
-                <div class="checkout_container">
+                <div class="checkout_container" style="min-height:300px; padding:20px;">
                 <?php if( !$error ): ?>
-                    <a href="<?php echo $btn_link; ?>">Pagar la compra</a>
+                    <input type="button" onclick="window.location.href='<?php echo $btn_link; ?>'" value="Pagar la compra" />
                 <?php else: ?>
                     <p><?php echo $error; ?></p>
                 <?php endif; ?>

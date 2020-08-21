@@ -16,7 +16,7 @@
                 require_once 'vendor/autoload.php';
 
                 $config     =   $this->getConfig();
-echo '<pre>';var_dump($config);echo '</pre>';
+
                 $base_url   =   $config['general']['base_url'];
                 MercadoPago\SDK::setAccessToken($config['mpago']['access_token']);
                 MercadoPago\SDK::setIntegratorId($config['mpago']['integrator_id']);
@@ -72,7 +72,7 @@ echo '<pre>';var_dump($config);echo '</pre>';
                 $preference->items = array($item);
                 $preference->payer = $payer;
                 $preference->save();
-
+echo '<pre>';var_dump($preference);echo '</pre>';
                 return $preference->init_point;
             }
 
