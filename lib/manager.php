@@ -111,6 +111,7 @@
             {
                 require_once 'vendor/autoload.php';
 
+                var_dump($_POST["id"]);
                 $config     =   $this->getConfig();
                 /*
                 MercadoPago\SDK::setAccessToken($config['mpago']['access_token']);
@@ -137,6 +138,8 @@
                $mensaje =   var_export($_POST,true);
                mail($config['preference']['external_reference'], $mensaje, $cabeceras);
                echo '<pre>';var_dump($_POST);echo '</pre>';
+
+               Response::json(['HTTP/1.1 200 OK'], 200);
            }
         }
     }
