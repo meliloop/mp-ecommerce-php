@@ -71,8 +71,8 @@
 
                 $preference->items = array($item);
                 $preference->payer = $payer;
-
-echo '<pre>';var_dump($preference->init_point);echo '</pre>';
+                $preference->save();
+                    
                 return $preference->init_point;
             }
 
