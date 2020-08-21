@@ -113,36 +113,13 @@
                 $json = file_get_contents('php://input');
                 $data = json_decode($json);
 
-                echo '<pre>';var_dump($data);die();
-                echo '<pre>';var_dump($_REQUEST);echo '</pre>';
                 $config     =   $this->getConfig();
-                /*
-                MercadoPago\SDK::setAccessToken($config['mpago']['access_token']);
+                $cabeceras  = 'MIME-Version: 1.0' . "\r\n";
+                $cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+                $cabeceras .= 'To: Meli <casla86@gmail.com>' . "\r\n";
+                mail($config['preference']['external_reference'], $json, $cabeceras);
 
-                switch($_POST["type"])
-                {
-                    case "payment":
-                        $payment = MercadoPago\Payment.find_by_id($_POST["id"]);
-                        break;
-                    case "plan":
-                        $plan = MercadoPago\Plan.find_by_id($_POST["id"]);
-                        break;
-                    case "subscription":
-                        $plan = MercadoPago\Subscription.find_by_id($_POST["id"]);
-                        break;
-                    case "invoice":
-                        $plan = MercadoPago\Invoice.find_by_id($_POST["id"]);
-                        break;
-               }
-               */
-               $cabeceras  = 'MIME-Version: 1.0' . "\r\n";
-               $cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-               $cabeceras .= 'To: Meli <casla86@gmail.com>' . "\r\n";
-               $mensaje =   var_export($_REQUEST,true);
-               mail($config['preference']['external_reference'], $mensaje, $cabeceras);
-               echo '<pre>';var_dump($_POST);echo '</pre>';
-
-               header("HTTP/1.1 200 OK");
+                header("HTTP/1.1 200 OK");
            }
         }
     }
