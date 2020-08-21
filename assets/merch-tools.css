@@ -9630,3 +9630,13 @@
         color: #b59c5c;
         border: 1px solid #b59c5c;
     }
+
+.return_container,
+.checkout_container{
+    min-height:200px;
+    margin:0 auto;
+    padding:50px;
+}
+
+    .return_container .row,
+    .checkout_container .row{ padding: 30px;}

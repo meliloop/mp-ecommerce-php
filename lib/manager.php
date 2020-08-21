@@ -1,6 +1,8 @@
 <?php
-    ini_set('display_errors',1);
-    error_reporting(E_ALL);
+    if( $_GET['debug'] ):
+        ini_set('display_errors',1);
+        error_reporting(E_ALL);
+    endif;
 
     if( !class_exists('Tienda_Manager') )
     {
@@ -72,12 +74,14 @@
                 $preference->items = array($item);
                 $preference->payer = $payer;
                 $preference->save();
-                    
+
                 return $preference->init_point;
             }
 
             public function getResponse()
             {
+                $config     =   $this->getConfig();
+                    
                 switch( $_GET['result'] )
                 {
                     case 'failure':
@@ -87,11 +91,10 @@
                         return '<h2 class="response pending">'.$config['text']['pending'].'</h2>';
                         break;
                     case 'success':
-                        echo '<pre>';var_dump($_GET);echo '</pre>';
                         return '<h2 class="response success">'.$config['text']['success'].'</h2>
                                 <div class="data__response">
                                     <div class="row">
-                                        <label>Identificador de pago:</label> '.$_GET['payment_id'].'
+                                        <label>Identificador de pago:</label> '.$_GET['collection_id'].'
                                     </div>
                                     <div class="row">
                                         <label>Metodo de pago:</label> '.$_GET['payment_type'].'

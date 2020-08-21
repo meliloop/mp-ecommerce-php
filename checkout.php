@@ -74,11 +74,13 @@
             </div>
             <div class="as-search-results as-filter-open as-category-landing as-desktop" id="as-search-results">
                 <div class="checkout_container" style="min-height:300px; padding:20px;">
-                <?php if( !$error ): ?>
-                    <input type="button" onclick="window.location.href='<?php echo $btn_link; ?>'" value="Pagar la compra" />
-                <?php else: ?>
-                    <p><?php echo $error; ?></p>
-                <?php endif; ?>
+                    <div class="row">
+                    <?php if( !$error ): ?>
+                        <input type="button" onclick="window.location.href='<?php echo $btn_link; ?>'" value="Pagar la compra" />
+                    <?php else: ?>
+                        <p><?php echo $error; ?></p>
+                    <?php endif; ?>
+                    </div>
                 </div>
             </div>
         </div>
