@@ -113,7 +113,7 @@
                 $json = file_get_contents('php://input');
                 $data = json_decode($json);
 
-
+                echo '<pre>';var_dump($data);die();
                 echo '<pre>';var_dump($_REQUEST);echo '</pre>';
                 $config     =   $this->getConfig();
                 /*
