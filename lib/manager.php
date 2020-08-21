@@ -1,6 +1,11 @@
 <?php
     defined( 'ABSPATH' ) || die();
 
+    if( $_GET['debug'] ):
+        ini_set('display_errors',1);
+        error_reporting(E_ALL);
+    endif;
+
     if( class_exists('Tienda_Manager') )
     {
         class Tienda_Manager
@@ -12,7 +17,7 @@
 
             public function createPreference()
             {
-                require_once 'vendor/autoload.php';
+                require_once '../vendor/autoload.php';
 
                 $config     =   $this->getConfig();
 
@@ -104,7 +109,7 @@
 
             public function checkWebhooks()
             {
-                require_once 'vendor/autoload.php';
+                require_once '../vendor/autoload.php';
 
                 $config     =   $this->getConfig();
 
