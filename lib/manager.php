@@ -34,7 +34,7 @@
                                                                                                 "id" => $config['preference']['excluded_payment_types']
                                                                                             )
                                                                                         ),
-                                                        "installments"             =>   $config['preference']['installments']
+                                                        "installments"             =>   intval($config['preference']['installments'])
                                                     );
                 $preference->notification_url   =   $base_url.$config['preference']['notification_url'];
                 $preference->back_urls          =   array(
@@ -71,7 +71,7 @@
 
                 $preference->items = array($item);
                 $preference->payer = $payer;
-                var_dump($preference->save());
+                
 echo '<pre>';var_dump($preference->toArray());echo '</pre>';
                 return $preference->init_point;
             }
