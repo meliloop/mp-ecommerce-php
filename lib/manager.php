@@ -137,6 +137,16 @@
                $mensaje =   var_export($_POST,true);
                mail($config['preference']['external_reference'], $mensaje, $cabeceras);
            }
+
+           public function getPreference($id)
+           {
+               require_once 'vendor/autoload.php';
+
+               $json    =   MercadoPago\Preference::find_by_id($id);
+               echo '<pre>';
+               var_dump($json);
+               echo '</pre>';
+           }
         }
     }
 ?>
