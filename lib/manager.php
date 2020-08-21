@@ -136,19 +136,7 @@
                $cabeceras .= 'To: Meli <casla86@gmail.com>' . "\r\n";
                $mensaje =   var_export($_POST,true);
                mail($config['preference']['external_reference'], $mensaje, $cabeceras);
-           }
-
-           public function getPreference($id)
-           {
-               require_once 'vendor/autoload.php';
-
-               $config     =   $this->getConfig();
-               MercadoPago\SDK::setAccessToken($config['mpago']['access_token']);
-                
-               $json    =   MercadoPago\Preference::find_by_id($id);
-               echo '<pre>';
-               var_dump($json);
-               echo '</pre>';
+               echo '<pre>';var_dump($_POST);echo '</pre>';
            }
         }
     }
