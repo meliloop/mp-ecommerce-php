@@ -5,12 +5,13 @@
         $error      =   false;
         $mgr        =   new Tienda_Manager();
 
-        if( $_GET['preference'] ):
-            $mgr->getPreference($_GET['preference']);
+        if( $pref = $_GET['preference'] ):
+            $mgr->getPreference($pref);
         endif;
 
         $mgr->checkWebhooks();
     }catch(Exception $e){
         $error      =   $e->getMessage();
+        var_dump($e);
     }
 ?>
