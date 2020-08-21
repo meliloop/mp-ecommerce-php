@@ -7,7 +7,7 @@
     if( !class_exists('Tienda_Manager') )
     {
         class Tienda_Manager
-        {
+        {/*
             protected function getConfig()
             {
                 return parse_ini_file("config.ini", true);
@@ -130,7 +130,7 @@ echo '<pre>';var_dump($config);echo '</pre>';
                }
 
                echo '<pre>';var_dump($_POST);echo '</pre>';
-            }
+           }*/
         }
     }
 ?>
