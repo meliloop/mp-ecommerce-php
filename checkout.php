@@ -4,8 +4,10 @@
 
         $error      =   false;
         $mgr        =   new Tienda_Manager();
+        var_dump($mgr);
         $btn_link   =   $mgr->createPreference();
     }catch(Exception $e){
+        var_dump($e);
         $error      =   $e->getMessage();
     }
 ?>
