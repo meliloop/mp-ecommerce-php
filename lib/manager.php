@@ -50,7 +50,7 @@
                 $item             = new MercadoPago\Item();
                 $item->id         = $_POST['item_id'];
                 $item->title      = $_POST['item_name'];
-                $item->description= $_POST['item_description'];
+                $item->description= "Dispositivo móvil de Tienda e-commerce";
                 $item->picture_url= $base_url.$_POST['item_img'];
                 $item->currency_id= "ARS";
                 $item->quantity   = intval($_POST['item_qty']);
@@ -58,6 +58,8 @@
 
                 //  payer data
                 $payer            = new MercadoPago\Payer();
+                $payer->name      = $config['payer']['name'];
+                $payer->surname   = $config['payer']['surname'];
                 $payer->first_name= $config['payer']['name'];
                 $payer->last_name = $config['payer']['surname'];
                 $payer->email     = $config['payer']['email'];
@@ -66,7 +68,7 @@
                                         "number"    => $config['payer']['phone_number']
                                     );
                 $payer->address   = array(
-                                        "street_name"   => $config['payer']['street_name'],
+                                        "street_name"   => "False",
                                         "street_number" => $config['payer']['street_number'],
                                         "zip_code"      => $config['payer']['zip_code']
                                     );
@@ -74,7 +76,7 @@
                 $preference->items = array($item);
                 $preference->payer = $payer;
                 $preference->save();
-
+echo '<pre>';var_dump($preference);die();
                 return $preference->init_point;
             }
 
