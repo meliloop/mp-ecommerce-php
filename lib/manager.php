@@ -109,16 +109,10 @@
 
             public function checkWebhooks()
             {
-                //require_once 'vendor/autoload.php';
                 $json = file_get_contents('php://input');
-                $data = json_decode($json);
 
-                $config     =   $this->getConfig();
-                $cabeceras  = 'MIME-Version: 1.0' . "\r\n";
-                $cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-                $cabeceras .= 'To: Meli <casla86@gmail.com>' . "\r\n";
-                mail($config['preference']['external_reference'], $json, $cabeceras);
-
+                file_put_contents(dirname(dirname(__FILE__)).'/log.json', $json);
+echo dirname(dirname(__FILE__)).'/log.json';
                 header("HTTP/1.1 200 OK");
            }
         }
