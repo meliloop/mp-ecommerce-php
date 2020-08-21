@@ -1,4 +1,5 @@
 <?php
+    die('aca');
     try{
         require_once('lib/manager.php');
 
