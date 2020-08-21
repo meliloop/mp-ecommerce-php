@@ -36,11 +36,11 @@
                                                                                         ),
                                                         "installments"             =>   $config['preference']['installments']
                                                     );
-                $preference->notification_url   =   $config['preference']['notification_url'];
+                $preference->notification_url   =   $base_url.$config['preference']['notification_url'];
                 $preference->back_urls          =   array(
-                                                        "success" => $config['preference']['success_url'],
-                                                        "failure" => $config['preference']['failure_url'],
-                                                        "pending" => $config['preference']['pending_url']
+                                                        "success" => $base_url.$config['preference']['success_url'],
+                                                        "failure" => $base_url.$config['preference']['failure_url'],
+                                                        "pending" => $base_url.$config['preference']['pending_url']
                                                     );
                 $preference->auto_return        =   $config['preference']['auto_return'];
 
@@ -49,7 +49,7 @@
                 $item->id         = $_POST['item_id'];
                 $item->title      = $_POST['item_name'];
                 $item->description= $_POST['item_description'];
-                $item->picture_url= $_POST['item_img'];
+                $item->picture_url= $base_url.$_POST['item_img'];
                 $item->currency_id= "ARS";
                 $item->quantity   = intval($_POST['item_qty']);
                 $item->unit_price = floatval($_POST['item_price']);
@@ -72,7 +72,7 @@
                 $preference->items = array($item);
                 $preference->payer = $payer;
                 $preference->save();
-echo '<pre>';var_dump($preference);echo '</pre>';
+echo '<pre>';var_dump(get_class_methods($preference));echo '</pre>';
                 return $preference->init_point;
             }
 
