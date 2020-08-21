@@ -1,11 +1,8 @@
 <?php
     try{
         require_once('lib/manager.php');
-        echo '<pre>';var_dump($_POST);echo '</pre>';
-        die('aca');
         $error      =   false;
         $mgr        =   new Tienda_Manager();
-        var_dump($mgr);
         $btn_link   =   $mgr->createPreference();
     }catch(Exception $e){
         var_dump($e);
