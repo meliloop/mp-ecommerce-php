@@ -9614,21 +9614,22 @@
     font-weight: bold;
     padding:4px;
     width: 100%;
+    text-align: center;
 }
 
     .response.success{
         color: #52a869;
-        border: 1px solid #52a869;
+        border: 3px solid #52a869;
     }
 
     .response.error{
-        color: #ff00;
-        border: 1px solid #ff00;
+        color: #ff0000;
+        border: 3px solid #ff0000;
     }
 
     .response.pending{
         color: #b59c5c;
-        border: 1px solid #b59c5c;
+        border: 3px solid #b59c5c;
     }
 
 .return_container,

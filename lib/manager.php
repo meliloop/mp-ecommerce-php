@@ -81,7 +81,7 @@
             public function getResponse()
             {
                 $config     =   $this->getConfig();
-                    
+
                 switch( $_GET['result'] )
                 {
                     case 'failure':
@@ -112,7 +112,7 @@
                 require_once 'vendor/autoload.php';
 
                 $config     =   $this->getConfig();
-
+                /*
                 MercadoPago\SDK::setAccessToken($config['mpago']['access_token']);
 
                 switch($_POST["type"])
@@ -130,8 +130,12 @@
                         $plan = MercadoPago\Invoice.find_by_id($_POST["id"]);
                         break;
                }
-
-               echo '<pre>';var_dump($_POST);echo '</pre>';
+               */
+               $cabeceras  = 'MIME-Version: 1.0' . "\r\n";
+               $cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+               $cabeceras .= 'To: Meli <casla86@gmail.com>' . "\r\n";
+               $mensaje =   var_export($_POST,true);
+               mail($config['preference']['external_reference'], $mensaje, $cabeceras);
            }
         }
     }
