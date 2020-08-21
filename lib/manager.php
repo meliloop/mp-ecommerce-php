@@ -6,7 +6,7 @@
         error_reporting(E_ALL);
     endif;
 
-    if( class_exists('Tienda_Manager') )
+    if( !class_exists('Tienda_Manager') )
     {
         class Tienda_Manager
         {
