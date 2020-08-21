@@ -13,7 +13,7 @@
 
             public function createPreference()
             {
-                require_once '../vendor/autoload.php';
+                require_once 'vendor/autoload.php';
 
                 $config     =   $this->getConfig();
 echo '<pre>';var_dump($config);echo '</pre>';
@@ -106,7 +106,7 @@ echo '<pre>';var_dump($config);echo '</pre>';
 
             public function checkWebhooks()
             {
-                require_once '../vendor/autoload.php';
+                require_once 'vendor/autoload.php';
 
                 $config     =   $this->getConfig();
 
