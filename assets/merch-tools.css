@@ -9609,3 +9609,24 @@
   clip: rect(1px, 1px 1px, 1px);
   clip-path: insert(0px 0px 99.9% 99.9%);
 }
+
+.response{
+    font-weight: bold;
+    padding:4px;
+    width: 100%;
+}
+
+    .response.success{
+        color: #52a869;
+        border: 1px solid #52a869;
+    }
+
+    .response.error{
+        color: #ff00;
+        border: 1px solid #ff00;
+    }
+
+    .response.pending{
+        color: #b59c5c;
+        border: 1px solid #b59c5c;
+    }
